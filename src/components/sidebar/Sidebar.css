@@ -1,0 +1,26 @@
+.sidebar {
+  background-image: url(../../assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.sidebar__nav {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.sidebar__nav-tab {
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
