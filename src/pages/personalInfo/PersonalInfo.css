@@ -1,0 +1,32 @@
+.info__title {
+  color: var(--marine-blue);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.info__text,
+.form-input::placeholder {
+  width: 80%;
+  color: var(--cool-gray);
+  font-size: 1.0125rem;
+  margin: 1rem 0;
+  font-weight: 500;
+}
+
+.form-item {
+  margin: 1rem 0;
+}
+
+.form-text {
+  color: var(--marine-blue);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.form-input {
+  outline: none;
+  color: var(--marine-blue);
+  width: 100%;
+  border: 1px solid var(--light-gray);
+  padding: 0.75rem;
+}

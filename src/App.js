@@ -14,12 +14,15 @@ function App() {
   return (
     <div className="app">
       <Sidebar />
-      <Routes>
-        <Route path="/" element={<PersonalInfo />} />
-        <Route path="/plan" element={<Plan />} />
-        <Route path="/addons" element={<AddOns />} />
-        <Route path="/summary" element={<Summary />} />
-      </Routes>
+      <div className="app__main">
+        <Routes>
+          <Route path="/" element={<PersonalInfo />} />
+          <Route path="/plan" element={<Plan />} />
+          <Route path="/addons" element={<AddOns />} />
+          <Route path="/summary" element={<Summary />} />
+        </Routes>
+      </div>
+
       <Navigation />
     </div>
   );

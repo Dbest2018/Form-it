@@ -1,1 +1,6 @@
-
+.app__main {
+  margin: -5.5rem 1rem 2rem;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  background-color: var(--white);
+}
