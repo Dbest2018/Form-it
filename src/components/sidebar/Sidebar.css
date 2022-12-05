@@ -13,6 +13,9 @@
   margin-top: 1rem;
   display: flex;
 }
+.sidebar__nav-info {
+  display: none;
+}
 
 .sidebar__nav-tab {
   margin-right: 1rem;
@@ -23,4 +26,32 @@
   height: 40px;
   border: 1px solid var(--white);
   border-radius: 50%;
+}
+
+@media (min-width: 900px) {
+  .sidebar {
+    background-image: url(../../assets/images/bg-sidebar-desktop.svg);
+    height: 70vh;
+    width: 250px;
+    border-radius: 1rem;
+  }
+
+  .sidebar__nav {
+    flex-direction: column;
+  }
+  .sidebar__nav-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  .sidebar__nav-info {
+    display: block;
+  }
+  .sidebar-step {
+    color: var(--light-gray);
+    font-size: 0.75rem;
+  }
+  .sidebar-title {
+    color: var(--white);
+  }
 }

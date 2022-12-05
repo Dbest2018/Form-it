@@ -6,10 +6,10 @@
 
 .info__text,
 .form-input::placeholder {
-  width: 80%;
+  max-width: 100%;
   color: var(--cool-gray);
   font-size: 1.0125rem;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
   font-weight: 500;
 }
 

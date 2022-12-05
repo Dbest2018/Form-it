@@ -13,17 +13,20 @@ import Summary from "./pages/summary/Summary";
 function App() {
   return (
     <div className="app">
-      <Sidebar />
-      <div className="app__main">
-        <Routes>
-          <Route path="/" element={<PersonalInfo />} />
-          <Route path="/plan" element={<Plan />} />
-          <Route path="/addons" element={<AddOns />} />
-          <Route path="/summary" element={<Summary />} />
-        </Routes>
+      <div className="app__content">
+        <Sidebar />
+        <div className="app__main">
+          <div className="main-content">
+            <Routes>
+              <Route path="/" element={<PersonalInfo />} />
+              <Route path="/plan" element={<Plan />} />
+              <Route path="/addons" element={<AddOns />} />
+              <Route path="/summary" element={<Summary />} />
+            </Routes>
+          </div>
+          <Navigation />
+        </div>
       </div>
-
-      <Navigation />
     </div>
   );
 }

@@ -41,33 +41,57 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__nav">
-        <div
-          className="sidebar__nav-tab"
-          style={selectedTab.tab1 ? activeStyle : defaultStyle}
-          onClick={() => setActive("tab1")}
-        >
-          1
+        <div className="sidebar__nav-item">
+          <div
+            className="sidebar__nav-tab"
+            style={selectedTab.tab1 ? activeStyle : defaultStyle}
+            onClick={() => setActive("tab1")}
+          >
+            1
+          </div>
+          <div className="sidebar__nav-info">
+            <div className="sidebar-step">STEP 1</div>
+            <div className="sidebar-title">YOUR INFO</div>
+          </div>
         </div>
-        <div
-          className="sidebar__nav-tab"
-          style={selectedTab.tab2 ? activeStyle : defaultStyle}
-          onClick={() => setActive("tab2")}
-        >
-          2
+        <div className="sidebar__nav-item">
+          <div
+            className="sidebar__nav-tab"
+            style={selectedTab.tab2 ? activeStyle : defaultStyle}
+            onClick={() => setActive("tab2")}
+          >
+            2
+          </div>
+          <div className="sidebar__nav-info">
+            <div className="sidebar-step">STEP 2</div>
+            <div className="sidebar-title">SELECT PLAN</div>
+          </div>
         </div>
-        <div
-          className="sidebar__nav-tab"
-          style={selectedTab.tab3 ? activeStyle : defaultStyle}
-          onClick={() => setActive("tab3")}
-        >
-          3
+        <div className="sidebar__nav-item">
+          <div
+            className="sidebar__nav-tab"
+            style={selectedTab.tab3 ? activeStyle : defaultStyle}
+            onClick={() => setActive("tab3")}
+          >
+            3
+          </div>
+          <div className="sidebar__nav-info">
+            <div className="sidebar-step">STEP 3</div>
+            <div className="sidebar-title">ADD-ONS</div>
+          </div>
         </div>
-        <div
-          className="sidebar__nav-tab"
-          style={selectedTab.tab4 ? activeStyle : defaultStyle}
-          onClick={() => setActive("tab4")}
-        >
-          4
+        <div className="sidebar__nav-item">
+          <div
+            className="sidebar__nav-tab"
+            style={selectedTab.tab4 ? activeStyle : defaultStyle}
+            onClick={() => setActive("tab4")}
+          >
+            4
+          </div>
+          <div className="sidebar__nav-info">
+            <div className="sidebar-step">STEP 4</div>
+            <div className="sidebar-title">SUMMARY</div>
+          </div>
         </div>
       </div>
     </div>

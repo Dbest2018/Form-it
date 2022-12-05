@@ -1,6 +1,32 @@
-.app__main {
+.main-content {
   margin: -5.5rem 1rem 2rem;
   border-radius: 1rem;
   padding: 2rem 1rem;
   background-color: var(--white);
+}
+
+@media (min-width: 900px) {
+  .app {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .app__content {
+    padding: 1rem;
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1rem;
+  }
+  .app__main {
+    margin: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70vh;
+  }
+  .main-content {
+    margin: 0;
+  }
 }
