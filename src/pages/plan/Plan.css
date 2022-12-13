@@ -43,7 +43,32 @@
 .plan__packages {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 1rem;
   margin: 2rem 0 0;
   background-color: var(--magnolia);
+}
+.monthly-package {
+  color: var(--marine-blue);
+  font-weight: 700;
+}
+.yearly-package {
+  color: var(--cool-gray);
+}
+
+@media (min-width: 900px) {
+  .plan__options {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .plan__option {
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .plan__packages {
+    justify-content: center;
+    gap: 1rem;
+  }
 }
