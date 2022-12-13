@@ -1,0 +1,28 @@
+.add__option {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--light-gray);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.option-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+input {
+  width: 20px;
+  height: 20px;
+}
+
+input:checked {
+  background-color: var(--purplish-blue);
+}
+
+.add__price {
+  color: var(--purplish-blue);
+}
