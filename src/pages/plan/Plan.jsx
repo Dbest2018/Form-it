@@ -5,15 +5,15 @@ import { BsToggleOff } from "react-icons/bs";
 import advancedImage from "../../assets/images/icon-advanced.svg";
 import arcadeImage from "../../assets/images/icon-arcade.svg";
 import proImage from "../../assets/images/icon-pro.svg";
+import Header from "../../components/header/Header";
 
 const Plan = () => {
   return (
     <div className="plan">
-      <div className="plan__title">Select your plan</div>
-      <div className="plan__text">
-        You have the option of monthly or yearly billing.
-      </div>
-
+      <Header
+        title={"Select your plan"}
+        text={"You have the option of monthly or yearly billing."}
+      />
       <div className="plan__options">
         <div className="plan__option">
           <img src={arcadeImage} alt="option" className="plan__option-img" />

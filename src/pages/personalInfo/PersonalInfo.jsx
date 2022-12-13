@@ -1,13 +1,14 @@
 import React from "react";
+import Header from "../../components/header/Header";
 import "./PersonalInfo.css";
 
 const PersonalInfo = () => {
   return (
     <div className="personalInfo">
-      <div className="info__title">Personal info</div>
-      <div className="info__text">
-        Please provide your name, email address, and phone number.
-      </div>
+      <Header
+        title={"Personal info"}
+        text={"Please provide your name, email address, and phone number."}
+      />
       <form className="info__form">
         <div className="form-item">
           <div className="form-text">Name</div>

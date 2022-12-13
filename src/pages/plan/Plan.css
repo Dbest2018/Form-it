@@ -1,17 +1,3 @@
-.plan__title {
-  color: var(--marine-blue);
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.plan__text {
-  max-width: 100%;
-  color: var(--cool-gray);
-  font-size: 1.0125rem;
-  margin: 1rem 0 2rem;
-  font-weight: 500;
-}
-
 .plan__options {
   display: flex;
   flex-direction: column;

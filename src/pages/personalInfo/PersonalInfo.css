@@ -1,18 +1,3 @@
-.info__title {
-  color: var(--marine-blue);
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.info__text,
-.form-input::placeholder {
-  max-width: 100%;
-  color: var(--cool-gray);
-  font-size: 1.0125rem;
-  margin: 1rem 0 2rem;
-  font-weight: 500;
-}
-
 .form-item {
   margin: 1rem 0;
 }
@@ -28,5 +13,14 @@
   color: var(--marine-blue);
   width: 100%;
   border: 1px solid var(--light-gray);
-  padding: 0.75rem;
+  padding: 1.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.form-input::placeholder {
+  max-width: 100%;
+  color: var(--cool-gray);
+  font-size: 1.0125rem;
+  margin: 1rem 0 2rem;
+  font-weight: 500;
 }
