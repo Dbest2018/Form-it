@@ -31,7 +31,7 @@
 @media (min-width: 900px) {
   .sidebar {
     background-image: url(../../assets/images/bg-sidebar-desktop.svg);
-    height: 70vh;
+    height: 80vh;
     width: 250px;
     border-radius: 1rem;
   }
