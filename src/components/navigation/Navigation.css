@@ -11,8 +11,12 @@
 }
 
 .nav__back {
-  display: none;
   color: var(--cool-gray);
+}
+.nav__back:hover {
+  cursor: pointer;
+  color: var(--marine-blue);
+  font-weight: 500;
 }
 
 .nav__button {
