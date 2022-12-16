@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { changeTab } from "../../features/selectedTab/selectedTabSlice";
 import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = () => {
-  const [selectedTab, setSelectedTab] = useState({ tab1: true });
+  const selectedTab = useSelector((state) => state.selectedTab.value);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const defaultStyle = {
@@ -15,12 +17,10 @@ const Sidebar = () => {
     backgroundColor: "var(--light-blue)",
   };
   const setActive = (tab) => {
-    if (selectedTab.tab) {
+    if (selectedTab === tab) {
       return;
     }
-    setSelectedTab({
-      [tab]: true,
-    });
+    dispatch(changeTab(tab));
     switch (tab) {
       case "tab1":
         navigate("/");
@@ -44,7 +44,7 @@ const Sidebar = () => {
         <div className="sidebar__nav-item">
           <div
             className="sidebar__nav-tab"
-            style={selectedTab.tab1 ? activeStyle : defaultStyle}
+            style={selectedTab === "tab1" ? activeStyle : defaultStyle}
             onClick={() => setActive("tab1")}
           >
             1
@@ -57,7 +57,7 @@ const Sidebar = () => {
         <div className="sidebar__nav-item">
           <div
             className="sidebar__nav-tab"
-            style={selectedTab.tab2 ? activeStyle : defaultStyle}
+            style={selectedTab === "tab2" ? activeStyle : defaultStyle}
             onClick={() => setActive("tab2")}
           >
             2
@@ -70,7 +70,7 @@ const Sidebar = () => {
         <div className="sidebar__nav-item">
           <div
             className="sidebar__nav-tab"
-            style={selectedTab.tab3 ? activeStyle : defaultStyle}
+            style={selectedTab === "tab3" ? activeStyle : defaultStyle}
             onClick={() => setActive("tab3")}
           >
             3
@@ -83,7 +83,7 @@ const Sidebar = () => {
         <div className="sidebar__nav-item">
           <div
             className="sidebar__nav-tab"
-            style={selectedTab.tab4 ? activeStyle : defaultStyle}
+            style={selectedTab === "tab4" ? activeStyle : defaultStyle}
             onClick={() => setActive("tab4")}
           >
             4
