@@ -1,6 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import "./Plan.css";
-import { BsToggleOff } from "react-icons/bs";
+import Switch from "react-switch";
 
 import advancedImage from "../../assets/images/icon-advanced.svg";
 import arcadeImage from "../../assets/images/icon-arcade.svg";
@@ -8,6 +8,16 @@ import proImage from "../../assets/images/icon-pro.svg";
 import Header from "../../components/header/Header";
 
 const Plan = () => {
+  const [plan, setPlan] = useState("monthly");
+
+  const handleChange = () => {
+    if (plan === "monthly") {
+      setPlan("yearly");
+      return;
+    }
+    setPlan("monthly");
+    return;
+  };
   return (
     <div className="plan">
       <Header
@@ -42,7 +52,13 @@ const Plan = () => {
 
       <div className="plan__packages">
         <div className="monthly-package">Monthly</div>
-        <BsToggleOff />
+        <Switch
+          onChange={handleChange}
+          uncheckedIcon={false}
+          checkedIcon={false}
+          onColor="#02295a"
+          checked={plan === "yearly"}
+        />
         <div className="yearly-package">Yearly</div>
       </div>
     </div>

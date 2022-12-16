@@ -33,6 +33,7 @@
   padding: 1rem;
   margin: 2rem 0 0;
   background-color: var(--magnolia);
+  border-radius: 0.75rem;
 }
 .monthly-package {
   color: var(--marine-blue);

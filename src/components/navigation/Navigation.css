@@ -20,6 +20,7 @@
 }
 
 .nav__button {
+  cursor: pointer;
   font-family: "Ubuntu", sans-serif;
   color: var(--white);
   background-color: var(--marine-blue);
