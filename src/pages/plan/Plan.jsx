@@ -29,7 +29,12 @@ const Plan = () => {
           <img src={arcadeImage} alt="option" className="plan__option-img" />
           <div className="plan__option-info">
             <div className="option__info-title">Arcade</div>
-            <div className="option__info-text">$9/mo</div>
+            <div className="option__info-text">
+              {plan === "yearly" ? "$90/yr" : "$9/mo"}
+            </div>
+            {plan === "yearly" && (
+              <div className="option__info-extra">2 months free</div>
+            )}
           </div>
         </div>
 
@@ -37,7 +42,12 @@ const Plan = () => {
           <img src={advancedImage} alt="option" className="plan__option-img" />
           <div className="plan__option-info">
             <div className="option__info-title">Advanced</div>
-            <div className="option__info-text">$12/mo</div>
+            <div className="option__info-text">
+              {plan === "yearly" ? "$120/yr" : "$12/mo"}
+            </div>
+            {plan === "yearly" && (
+              <div className="option__info-extra">2 months free</div>
+            )}
           </div>
         </div>
 
@@ -45,7 +55,12 @@ const Plan = () => {
           <img src={proImage} alt="option" className="plan__option-img" />
           <div className="plan__option-info">
             <div className="option__info-title">Pro</div>
-            <div className="option__info-text">$15/mo</div>
+            <div className="option__info-text">
+              {plan === "yearly" ? "$150/yr" : "$15/mo"}
+            </div>
+            {plan === "yearly" && (
+              <div className="option__info-extra">2 months free</div>
+            )}
           </div>
         </div>
       </div>
@@ -57,6 +72,7 @@ const Plan = () => {
           uncheckedIcon={false}
           checkedIcon={false}
           onColor="#02295a"
+          offColor="#02295a"
           checked={plan === "yearly"}
         />
         <div className="yearly-package">Yearly</div>

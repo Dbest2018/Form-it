@@ -5,6 +5,7 @@
 }
 
 .plan__option {
+  cursor: pointer;
   border: 1px solid var(--light-gray);
   border-radius: 0.5rem;
   display: flex;
@@ -24,6 +25,11 @@
 }
 .option__info-text {
   color: var(--cool-gray);
+}
+.option__info-extra {
+  color: var(--marine-blue);
+  font-weight: 500;
+  margin-top: 0.25rem;
 }
 
 .plan__packages {
