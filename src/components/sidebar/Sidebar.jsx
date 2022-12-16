@@ -41,11 +41,10 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__nav">
-        <div className="sidebar__nav-item">
+        <div className="sidebar__nav-item" onClick={() => setActive("tab1")}>
           <div
             className="sidebar__nav-tab"
             style={selectedTab === "tab1" ? activeStyle : defaultStyle}
-            onClick={() => setActive("tab1")}
           >
             1
           </div>
@@ -54,11 +53,10 @@ const Sidebar = () => {
             <div className="sidebar-title">YOUR INFO</div>
           </div>
         </div>
-        <div className="sidebar__nav-item">
+        <div className="sidebar__nav-item" onClick={() => setActive("tab2")}>
           <div
             className="sidebar__nav-tab"
             style={selectedTab === "tab2" ? activeStyle : defaultStyle}
-            onClick={() => setActive("tab2")}
           >
             2
           </div>
@@ -67,11 +65,10 @@ const Sidebar = () => {
             <div className="sidebar-title">SELECT PLAN</div>
           </div>
         </div>
-        <div className="sidebar__nav-item">
+        <div className="sidebar__nav-item" onClick={() => setActive("tab3")}>
           <div
             className="sidebar__nav-tab"
             style={selectedTab === "tab3" ? activeStyle : defaultStyle}
-            onClick={() => setActive("tab3")}
           >
             3
           </div>
@@ -80,11 +77,10 @@ const Sidebar = () => {
             <div className="sidebar-title">ADD-ONS</div>
           </div>
         </div>
-        <div className="sidebar__nav-item">
+        <div className="sidebar__nav-item" onClick={() => setActive("tab4")}>
           <div
             className="sidebar__nav-tab"
             style={selectedTab === "tab4" ? activeStyle : defaultStyle}
-            onClick={() => setActive("tab4")}
           >
             4
           </div>
