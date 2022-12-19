@@ -1,4 +1,5 @@
 .add__option {
+  cursor: pointer;
   display: flex;
   padding: 1rem;
   justify-content: space-between;

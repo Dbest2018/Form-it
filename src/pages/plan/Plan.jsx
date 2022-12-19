@@ -9,15 +9,15 @@ import arcadeImage from "../../assets/images/icon-arcade.svg";
 import proImage from "../../assets/images/icon-pro.svg";
 import Header from "../../components/header/Header";
 
+export const optionBorderStyle = {
+  backgroundColor: "var(--alabaster)",
+  border: "1px solid var(--purplish-blue)",
+};
+
 const Plan = () => {
   const [plan, setPlan] = useState("monthly");
   const selectedPlan = useSelector((state) => state.selectedPlan.value);
   const dispatch = useDispatch();
-
-  const optionBorderStyle = {
-    backgroundColor: "var(--alabaster)",
-    border: "1px solid var(--purplish-blue)",
-  };
 
   const selectPlan = (selected) => {
     const price = {
