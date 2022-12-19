@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "../../components/header/Header";
 import "./AddOns.css";
+import { useSelector, useDispatch } from "react-redux";
+import { add, remove } from "../../features/addOns/addOnsSlice";
 
 import { optionBorderStyle } from "../plan/Plan";
 
@@ -10,47 +12,58 @@ const AddOns = () => {
     isLarger: false,
     isCustom: false,
   });
+  const addOns = useSelector((state) => state.addOns.value);
+  const dispatch = useDispatch();
 
   const handleOnlineChange = (e) => {
+    const onlineServie = { name: "Online service", price: "+$1/mo" };
     if (e.target.checked) {
       setIsAddedOn((prevAddOns) => ({
         ...prevAddOns,
         isOnline: true,
       }));
+      dispatch(add(onlineServie));
       return;
     }
     setIsAddedOn((prevAddOns) => ({
       ...prevAddOns,
       isOnline: false,
     }));
+    dispatch(remove(onlineServie));
   };
 
   const handleStorageChange = (e) => {
+    const largerStorage = { name: "Larger storage", price: "+$2/mo" };
     if (e.target.checked) {
       setIsAddedOn((prevAddOns) => ({
         ...prevAddOns,
         isLarger: true,
       }));
+      dispatch(add(largerStorage));
       return;
     }
     setIsAddedOn((prevAddOns) => ({
       ...prevAddOns,
       isLarger: false,
     }));
+    dispatch(remove(largerStorage));
   };
 
   const handleCustomChange = (e) => {
+    const customProfile = { name: "Customizable Profile", price: "+$2/mo" };
     if (e.target.checked) {
       setIsAddedOn((prevAddOns) => ({
         ...prevAddOns,
         isCustom: true,
       }));
+      dispatch(add(customProfile));
       return;
     }
     setIsAddedOn((prevAddOns) => ({
       ...prevAddOns,
       isCustom: false,
     }));
+    dispatch(remove(customProfile));
   };
 
   return (
