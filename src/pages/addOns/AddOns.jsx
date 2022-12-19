@@ -13,10 +13,14 @@ const AddOns = () => {
     isCustom: false,
   });
   const addOns = useSelector((state) => state.addOns.value);
+  const selectedPlan = useSelector((state) => state.selectedPlan.value);
   const dispatch = useDispatch();
 
   const handleOnlineChange = (e) => {
-    const onlineServie = { name: "Online service", price: "+$1/mo" };
+    const onlineServie = {
+      name: "Online service",
+      price: selectedPlan.type === "monthly" ? "+$1/mo" : "+$10/yr",
+    };
     if (e.target.checked) {
       setIsAddedOn((prevAddOns) => ({
         ...prevAddOns,
@@ -33,7 +37,10 @@ const AddOns = () => {
   };
 
   const handleStorageChange = (e) => {
-    const largerStorage = { name: "Larger storage", price: "+$2/mo" };
+    const largerStorage = {
+      name: "Larger storage",
+      price: selectedPlan.type === "monthly" ? "+$2/mo" : "+$20/yr",
+    };
     if (e.target.checked) {
       setIsAddedOn((prevAddOns) => ({
         ...prevAddOns,
@@ -50,7 +57,10 @@ const AddOns = () => {
   };
 
   const handleCustomChange = (e) => {
-    const customProfile = { name: "Customizable Profile", price: "+$2/mo" };
+    const customProfile = {
+      name: "Customizable Profile",
+      price: selectedPlan.type === "monthly" ? "+$1/mo" : "+$10/yr",
+    };
     if (e.target.checked) {
       setIsAddedOn((prevAddOns) => ({
         ...prevAddOns,
@@ -86,7 +96,9 @@ const AddOns = () => {
               </div>
             </div>
           </div>
-          <div className="add__price">+$1/mo</div>
+          <div className="add__price">
+            {selectedPlan.type === "monthly" ? "+$1/mo" : "+$10/yr"}
+          </div>
         </div>
 
         <div
@@ -100,7 +112,9 @@ const AddOns = () => {
               <div className="option__info-text">Extra 1TB of cloud save</div>
             </div>
           </div>
-          <div className="add__price">+$2/mo</div>
+          <div className="add__price">
+            {selectedPlan.type === "monthly" ? "+$2/mo" : "+$20/yr"}
+          </div>
         </div>
 
         <div
@@ -116,7 +130,9 @@ const AddOns = () => {
               </div>
             </div>
           </div>
-          <div className="add__price">+$2/mo</div>
+          <div className="add__price">
+            {selectedPlan.type === "monthly" ? "+$2/mo" : "+$20/yr"}
+          </div>
         </div>
       </div>
     </div>
