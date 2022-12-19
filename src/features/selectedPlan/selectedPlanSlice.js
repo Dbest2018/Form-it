@@ -1,13 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const selectedPlanSlice = createSlice({
-  name: "selectedTab",
+  name: "selectedPlan",
   initialState: {
-    value: {
-      name: "Arcade",
-      type: "monthly",
-      price: "$9/mo",
-    },
+    value: {},
   },
   reducers: {
     changePlan: (state, action) => {
@@ -18,6 +14,6 @@ export const selectedPlanSlice = createSlice({
 
 export const { changePlan } = selectedPlanSlice.actions;
 
-export const selectCount = (state) => state.selectedTab.value;
+export const selectedPlan = (state) => state.selectedPlan.value;
 
 export default selectedPlanSlice.reducer;

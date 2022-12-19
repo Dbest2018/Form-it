@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Plan.css";
 import Switch from "react-switch";
+import { useSelector, useDispatch } from "react-redux";
+import { changePlan } from "../../features/selectedPlan/selectedPlanSlice";
 
 import advancedImage from "../../assets/images/icon-advanced.svg";
 import arcadeImage from "../../assets/images/icon-arcade.svg";
@@ -9,6 +11,44 @@ import Header from "../../components/header/Header";
 
 const Plan = () => {
   const [plan, setPlan] = useState("monthly");
+  const selectedPlan = useSelector((state) => state.selectedPlan.value);
+  const dispatch = useDispatch();
+
+  const optionBorderStyle = {
+    backgroundColor: "var(--alabaster)",
+    border: "1px solid var(--purplish-blue)",
+  };
+
+  const selectPlan = (selected) => {
+    const price = {
+      arcadePrice: plan === "monthly" ? "$9/mo" : "$90/mo",
+      advancedPrice: plan === "monthly" ? "$12/mo" : "$120/mo",
+      proPrice: plan === "monthly" ? "$15/mo" : "$150/mo",
+    };
+    switch (selected) {
+      case "arcade":
+        dispatch(
+          changePlan({ name: "Arcade", type: plan, price: price.arcadePrice })
+        );
+        break;
+      case "advanced":
+        dispatch(
+          changePlan({
+            name: "Advanced",
+            type: plan,
+            price: price.advancedPrice,
+          })
+        );
+        break;
+      case "pro":
+        dispatch(
+          changePlan({ name: "Pro", type: plan, price: price.proPrice })
+        );
+        break;
+      default:
+        return;
+    }
+  };
 
   const handleChange = () => {
     if (plan === "monthly") {
@@ -25,7 +65,11 @@ const Plan = () => {
         text={"You have the option of monthly or yearly billing."}
       />
       <div className="plan__options">
-        <div className="plan__option">
+        <div
+          className="plan__option"
+          style={selectedPlan.name === "Arcade" ? optionBorderStyle : null}
+          onClick={() => selectPlan("arcade")}
+        >
           <img src={arcadeImage} alt="option" className="plan__option-img" />
           <div className="plan__option-info">
             <div className="option__info-title">Arcade</div>
@@ -38,7 +82,11 @@ const Plan = () => {
           </div>
         </div>
 
-        <div className="plan__option">
+        <div
+          className="plan__option"
+          style={selectedPlan.name === "Advanced" ? optionBorderStyle : null}
+          onClick={() => selectPlan("advanced")}
+        >
           <img src={advancedImage} alt="option" className="plan__option-img" />
           <div className="plan__option-info">
             <div className="option__info-title">Advanced</div>
@@ -51,7 +99,11 @@ const Plan = () => {
           </div>
         </div>
 
-        <div className="plan__option">
+        <div
+          className="plan__option"
+          style={selectedPlan.name === "Pro" ? optionBorderStyle : null}
+          onClick={() => selectPlan("pro")}
+        >
           <img src={proImage} alt="option" className="plan__option-img" />
           <div className="plan__option-info">
             <div className="option__info-title">Pro</div>

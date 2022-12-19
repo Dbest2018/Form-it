@@ -14,6 +14,6 @@ export const selectedTabSlice = createSlice({
 
 export const { changeTab } = selectedTabSlice.actions;
 
-export const selectCount = (state) => state.selectedTab.value;
+export const selectedTab = (state) => state.selectedTab.value;
 
 export default selectedTabSlice.reducer;
