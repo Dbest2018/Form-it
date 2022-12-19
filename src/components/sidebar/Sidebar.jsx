@@ -2,11 +2,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeTab } from "../../features/selectedTab/selectedTabSlice";
 import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
+import { useEffect } from "react";
 
 const Sidebar = () => {
   const selectedTab = useSelector((state) => state.selectedTab.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(changeTab("tab1"));
+    navigate("/");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const defaultStyle = {
     color: "var(--white)",
