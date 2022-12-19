@@ -18,6 +18,7 @@
 }
 
 .sidebar__nav-tab {
+  cursor: pointer;
   margin-right: 1rem;
   display: flex;
   justify-content: center;
@@ -46,6 +47,7 @@
   }
   .sidebar__nav-info {
     display: block;
+    cursor: pointer;
   }
   .sidebar-step {
     color: var(--light-gray);
