@@ -12,14 +12,14 @@ const AddOns = () => {
     isLarger: false,
     isCustom: false,
   });
-  const addOns = useSelector((state) => state.addOns.value);
+  // const addOns = useSelector((state) => state.addOns.value);
   const selectedPlan = useSelector((state) => state.selectedPlan.value);
   const dispatch = useDispatch();
 
   const price = {
-    online: selectedPlan.type === "yearly" ? "+$10/yr" : "+$1/mo",
-    storage: selectedPlan.type === "yearly" ? "+$20/yr" : "+$2/mo",
-    custom: selectedPlan.type === "yearly" ? "+$20/yr" : "+$2/mo",
+    online: selectedPlan.type === "yearly" ? 10 : 1,
+    storage: selectedPlan.type === "yearly" ? 20 : 2,
+    custom: selectedPlan.type === "yearly" ? 20 : 2,
   };
 
   const handleOnlineChange = (e) => {
@@ -81,7 +81,6 @@ const AddOns = () => {
     }));
     dispatch(remove(customProfile));
   };
-
   return (
     <div className="add">
       <Header
@@ -102,7 +101,9 @@ const AddOns = () => {
               </div>
             </div>
           </div>
-          <div className="add__price">{price.online}</div>
+          <div className="add__price">{`$${price.online}/${
+            selectedPlan.type === "yearly" ? "yr" : "mo"
+          }`}</div>
         </div>
 
         <div
@@ -116,7 +117,9 @@ const AddOns = () => {
               <div className="option__info-text">Extra 1TB of cloud save</div>
             </div>
           </div>
-          <div className="add__price">{price.storage}</div>
+          <div className="add__price">{`$${price.storage}/${
+            selectedPlan.type === "yearly" ? "yr" : "mo"
+          }`}</div>
         </div>
 
         <div
@@ -132,7 +135,9 @@ const AddOns = () => {
               </div>
             </div>
           </div>
-          <div className="add__price">{price.custom}</div>
+          <div className="add__price">{`$${price.custom}/${
+            selectedPlan.type === "yearly" ? "yr" : "mo"
+          }`}</div>
         </div>
       </div>
     </div>

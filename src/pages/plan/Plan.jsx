@@ -21,9 +21,9 @@ const Plan = () => {
 
   const selectPlan = (selected) => {
     const price = {
-      arcadePrice: plan === "monthly" ? "$9/mo" : "$90/mo",
-      advancedPrice: plan === "monthly" ? "$12/mo" : "$120/mo",
-      proPrice: plan === "monthly" ? "$15/mo" : "$150/mo",
+      arcadePrice: plan === "monthly" ? 9 : 90,
+      advancedPrice: plan === "monthly" ? 12 : 120,
+      proPrice: plan === "monthly" ? 15 : 150,
     };
     switch (selected) {
       case "arcade":
