@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../components/header/Header";
 import "./AddOns.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,7 +12,29 @@ const AddOns = () => {
     isLarger: false,
     isCustom: false,
   });
-  // const addOns = useSelector((state) => state.addOns.value);
+  const addOns = useSelector((state) => state.addOns.value);
+  useEffect(() => {
+    addOns.forEach((addOn) => {
+      if (addOn.isChecked === "online") {
+        setIsAddedOn((prevAddOns) => ({
+          ...prevAddOns,
+          isOnline: true,
+        }));
+      }
+      if (addOn.isChecked === "larger") {
+        setIsAddedOn((prevAddOns) => ({
+          ...prevAddOns,
+          isLarger: true,
+        }));
+      }
+      if (addOn.isChecked === "custom") {
+        setIsAddedOn((prevAddOns) => ({
+          ...prevAddOns,
+          isCustom: true,
+        }));
+      }
+    });
+  }, [addOns]);
   const selectedPlan = useSelector((state) => state.selectedPlan.value);
   const dispatch = useDispatch();
 
@@ -24,6 +46,7 @@ const AddOns = () => {
 
   const handleOnlineChange = (e) => {
     const onlineServie = {
+      isChecked: "online",
       name: "Online service",
       price: price.online,
     };
@@ -44,6 +67,7 @@ const AddOns = () => {
 
   const handleStorageChange = (e) => {
     const largerStorage = {
+      isChecked: "larger",
       name: "Larger storage",
       price: price.storage,
     };
@@ -66,6 +90,7 @@ const AddOns = () => {
     const customProfile = {
       name: "Customizable Profile",
       price: price.custom,
+      isChecked: "custom",
     };
     if (e.target.checked) {
       setIsAddedOn((prevAddOns) => ({
@@ -93,7 +118,11 @@ const AddOns = () => {
           style={isAddedOn.isOnline ? optionBorderStyle : null}
         >
           <div className="option-left">
-            <input type="checkbox" onChange={handleOnlineChange} />
+            <input
+              checked={isAddedOn.isOnline}
+              type="checkbox"
+              onChange={handleOnlineChange}
+            />
             <div className="add__option-info">
               <div className="option__info-title">Online service</div>
               <div className="option__info-text">
@@ -111,7 +140,11 @@ const AddOns = () => {
           style={isAddedOn.isLarger ? optionBorderStyle : null}
         >
           <div className="option-left">
-            <input type="checkbox" onChange={handleStorageChange} />
+            <input
+              checked={isAddedOn.isLarger}
+              type="checkbox"
+              onChange={handleStorageChange}
+            />
             <div className="add__option-info">
               <div className="option__info-title">Larger storage</div>
               <div className="option__info-text">Extra 1TB of cloud save</div>
@@ -127,7 +160,11 @@ const AddOns = () => {
           style={isAddedOn.isCustom ? optionBorderStyle : null}
         >
           <div className="option-left">
-            <input type="checkbox" onChange={handleCustomChange} />
+            <input
+              checked={isAddedOn.isCustom}
+              type="checkbox"
+              onChange={handleCustomChange}
+            />
             <div className="add__option-info">
               <div className="option__info-title">Customizable profile</div>
               <div className="option__info-text">
