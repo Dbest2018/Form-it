@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addName,
@@ -13,17 +12,16 @@ const PersonalInfo = () => {
   const formInfo = useSelector((state) => state.formInfo.value);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(setError(false));
-  });
-
   const handleNameChange = (e) => {
+    dispatch(setError(false));
     dispatch(addName(e.target.value));
   };
   const handleEmailChange = (e) => {
+    dispatch(setError(false));
     dispatch(addEmail(e.target.value));
   };
   const handlePhoneChange = (e) => {
+    dispatch(setError(false));
     dispatch(addPhone(e.target.value));
   };
   return (
@@ -34,7 +32,12 @@ const PersonalInfo = () => {
       />
       <form className="info__form">
         <div className="form-item">
-          <div className="form-text">Name</div>
+          <div className="form-info">
+            <div className="form-text">Name</div>
+            {formInfo.error && formInfo.name === "" && (
+              <div className="form-error">This field is required</div>
+            )}
+          </div>
           <input
             value={formInfo.name}
             className="form-input"
@@ -44,7 +47,12 @@ const PersonalInfo = () => {
           />
         </div>
         <div className="form-item">
-          <div className="form-text">Email Address</div>
+          <div className="form-info">
+            <div className="form-text">Email Address</div>
+            {formInfo.error && formInfo.email === "" && (
+              <div className="form-error">This field is required</div>
+            )}
+          </div>
           <input
             value={formInfo.email}
             className="form-input"
@@ -56,7 +64,7 @@ const PersonalInfo = () => {
         <div className="form-item">
           <div className="form-info">
             <div className="form-text">Phone Number</div>
-            {formInfo.error && (
+            {formInfo.error && formInfo.phone === "" && (
               <div className="form-error">This field is required</div>
             )}
           </div>

@@ -1,15 +1,25 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setError } from "../../features/formInfo/formInfoSlice";
 import { changeTab } from "../../features/selectedTab/selectedTabSlice";
 import "./Navigation.css";
 
 const Navigation = () => {
   const selectedTab = useSelector((state) => state.selectedTab.value);
+  const formInfo = useSelector((state) => state.formInfo.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const nextPage = () => {
     if (selectedTab === "tab4") {
+      return;
+    }
+    if (
+      formInfo.phone === "" ||
+      formInfo.email === "" ||
+      formInfo.name === ""
+    ) {
+      dispatch(setError(true));
       return;
     }
     switch (selectedTab) {
