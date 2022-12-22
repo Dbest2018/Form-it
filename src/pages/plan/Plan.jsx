@@ -8,6 +8,7 @@ import advancedImage from "../../assets/images/icon-advanced.svg";
 import arcadeImage from "../../assets/images/icon-arcade.svg";
 import proImage from "../../assets/images/icon-pro.svg";
 import Header from "../../components/header/Header";
+import { useEffect } from "react";
 
 export const optionBorderStyle = {
   backgroundColor: "var(--alabaster)",
@@ -18,6 +19,11 @@ const Plan = () => {
   const [plan, setPlan] = useState("monthly");
   const selectedPlan = useSelector((state) => state.selectedPlan.value);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setPlan(selectedPlan.type);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const selectPlan = (selected) => {
     const price = {
@@ -52,8 +58,26 @@ const Plan = () => {
 
   const handleChange = () => {
     if (plan === "monthly") {
+      if (selectedPlan.name) {
+        dispatch(
+          changePlan({
+            ...selectedPlan,
+            type: "yearly",
+            price: selectedPlan.price * 10,
+          })
+        );
+      }
       setPlan("yearly");
       return;
+    }
+    if (selectedPlan.name) {
+      dispatch(
+        changePlan({
+          ...selectedPlan,
+          type: "monthly",
+          price: selectedPlan.price / 10,
+        })
+      );
     }
     setPlan("monthly");
     return;
@@ -125,7 +149,7 @@ const Plan = () => {
           checkedIcon={false}
           onColor="#02295a"
           offColor="#02295a"
-          checked={plan === "yearly"}
+          checked={selectedPlan.type === "yearly"}
         />
         <div className="yearly-package">Yearly</div>
       </div>
