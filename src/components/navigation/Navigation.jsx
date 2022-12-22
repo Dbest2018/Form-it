@@ -7,11 +7,15 @@ import "./Navigation.css";
 const Navigation = () => {
   const selectedTab = useSelector((state) => state.selectedTab.value);
   const formInfo = useSelector((state) => state.formInfo.value);
+  const selectedPlan = useSelector((state) => state.selectedPlan.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const nextPage = () => {
     if (selectedTab === "tab4") {
+      return;
+    }
+    if (selectedTab === "tab2" && JSON.stringify(selectedPlan) === "{}") {
       return;
     }
     if (
