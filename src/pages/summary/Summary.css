@@ -17,6 +17,7 @@
   font-weight: 700;
 }
 .type-toggle {
+  cursor: pointer;
   text-decoration: underline;
   text-decoration-color: gray;
 }
