@@ -9,6 +9,7 @@ import PersonalInfo from "./pages/personalInfo/PersonalInfo";
 import Plan from "./pages/plan/Plan";
 import AddOns from "./pages/addOns/AddOns";
 import Summary from "./pages/summary/Summary";
+import End from "./pages/end/End";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/plan" element={<Plan />} />
               <Route path="/addons" element={<AddOns />} />
               <Route path="/summary" element={<Summary />} />
+              <Route path="/end" element={<End />} />
             </Routes>
           </div>
           <Navigation />

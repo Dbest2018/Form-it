@@ -1,0 +1,14 @@
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.end__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--marine-blue);
+}
+.end__text {
+  color: var(--cool-gray);
+}
