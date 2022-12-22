@@ -23,32 +23,10 @@ const Sidebar = () => {
     color: "var(--marine-blue)",
     backgroundColor: "var(--light-blue)",
   };
-  const setActive = (tab) => {
-    if (selectedTab === tab) {
-      return;
-    }
-    dispatch(changeTab(tab));
-    switch (tab) {
-      case "tab1":
-        navigate("/");
-        break;
-      case "tab2":
-        navigate("/plan");
-        break;
-      case "tab3":
-        navigate("/addons");
-        break;
-      case "tab4":
-        navigate("/summary");
-        break;
-      default:
-        navigate("/");
-    }
-  };
   return (
     <div className="sidebar">
       <div className="sidebar__nav">
-        <div className="sidebar__nav-item" onClick={() => setActive("tab1")}>
+        <div className="sidebar__nav-item">
           <div
             className="sidebar__nav-tab"
             style={selectedTab === "tab1" ? activeStyle : defaultStyle}
@@ -60,7 +38,7 @@ const Sidebar = () => {
             <div className="sidebar-title">YOUR INFO</div>
           </div>
         </div>
-        <div className="sidebar__nav-item" onClick={() => setActive("tab2")}>
+        <div className="sidebar__nav-item">
           <div
             className="sidebar__nav-tab"
             style={selectedTab === "tab2" ? activeStyle : defaultStyle}
@@ -72,7 +50,7 @@ const Sidebar = () => {
             <div className="sidebar-title">SELECT PLAN</div>
           </div>
         </div>
-        <div className="sidebar__nav-item" onClick={() => setActive("tab3")}>
+        <div className="sidebar__nav-item">
           <div
             className="sidebar__nav-tab"
             style={selectedTab === "tab3" ? activeStyle : defaultStyle}
@@ -84,7 +62,7 @@ const Sidebar = () => {
             <div className="sidebar-title">ADD-ONS</div>
           </div>
         </div>
-        <div className="sidebar__nav-item" onClick={() => setActive("tab4")}>
+        <div className="sidebar__nav-item">
           <div
             className="sidebar__nav-tab"
             style={selectedTab === "tab4" ? activeStyle : defaultStyle}
