@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/Dbest2018/Form-it)
-- Live Site URL: [Live](https://github.com/Dbest2018/Form-it)
+- Live Site URL: [Live](https://form-it-dam.netlify.app/)
 
 ## My process
 
