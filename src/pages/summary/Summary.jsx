@@ -1,5 +1,7 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header";
+import { changeTab } from "../../features/selectedTab/selectedTabSlice";
 import "./Summary.css";
 
 const ExtraPackage = ({ addOn, selectedPlan }) => {
@@ -18,6 +20,13 @@ const ExtraPackage = ({ addOn, selectedPlan }) => {
 const Summary = () => {
   const addOns = useSelector((state) => state.addOns.value);
   const selectedPlan = useSelector((state) => state.selectedPlan.value);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const changePlanInSummary = () => {
+    dispatch(changeTab("tab2"));
+    navigate("/plan");
+  };
 
   let totalAddOns = selectedPlan.price;
   addOns.forEach((addOn) => {
@@ -35,7 +44,9 @@ const Summary = () => {
             <div className="type-title">
               {selectedPlan.name} ({selectedPlan.type})
             </div>
-            <div className="type-toggle">Change</div>
+            <div className="type-toggle" onClick={() => changePlanInSummary()}>
+              Change
+            </div>
           </div>
           <div className="summary__main-price">{`$${selectedPlan.price}/${
             selectedPlan.type === "monthly" ? "mo" : "yr"
