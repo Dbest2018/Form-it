@@ -46,7 +46,6 @@
   }
   .sidebar__nav-info {
     display: block;
-    cursor: pointer;
   }
   .sidebar-step {
     color: var(--light-gray);
