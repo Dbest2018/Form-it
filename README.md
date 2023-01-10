@@ -46,7 +46,7 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Redux](https://react-redux.js.org/) - State management library
+- [Redux toolkit](https://react-redux.js.org/) - State management library
 
 ## Author
 
